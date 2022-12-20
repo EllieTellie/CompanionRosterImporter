@@ -7,11 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>SimpleRosterImporter.Program</StartupObject>
-    <ApplicationIcon>amce_only.ico</ApplicationIcon>
+    <ApplicationIcon>acme_only.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="amce_only.ico" />
+    <Content Include="acme_only.ico" />
   </ItemGroup>
 
   <ItemGroup>
