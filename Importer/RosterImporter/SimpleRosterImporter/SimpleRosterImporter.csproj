@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>SimpleRosterImporter.Program</StartupObject>
+    <ApplicationIcon>amce_only.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="amce_only.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CompanionData">
+      <HintPath>..\libs\CompanionData.dll</HintPath>
+    </Reference>
+    <Reference Include="CompanionFramework">
+      <HintPath>..\libs\CompanionFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\libs\LitJson.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

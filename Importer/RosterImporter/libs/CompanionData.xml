@@ -1,0 +1,2574 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CompanionData</name>
+    </assembly>
+    <members>
+        <member name="M:Companion.Data.Catalogue.GetVersionInfo(System.String)">
+            <summary>
+            Get version information from the catalogue at the specified path.
+            </summary>
+            <param name="path">Path</param>
+            <returns>Version information</returns>
+        </member>
+        <member name="M:Companion.Data.Catalogue.GetCatalogues(Companion.Data.GameSystem)">
+            <summary>
+            Get a list of catalogues referenced by this catalogue. This returns an empty list if none found.
+            </summary>
+            <param name="gameSystem">Game System</param>
+            <returns>List of catalogues</returns>
+        </member>
+        <member name="M:Companion.Data.Extensions.EntryExtensions.GetSingleEntryId(Companion.Data.IEntryContainer)">
+            <summary>
+            Get single entry id. If this entry id is combined of many entries it will return the last one.
+            </summary>
+            <returns>Entry id</returns>
+        </member>
+        <member name="M:Companion.Data.Extensions.EntryExtensions.GetSingleEntryGroupId(Companion.Data.IEntryContainer)">
+            <summary>
+            Get single entry group id. If this entry id is combined of many entries it will return the last one.
+            </summary>
+            <returns>Entry group id</returns>
+        </member>
+        <member name="M:Companion.Data.Extensions.ProfileExtensions.GetCharacteristicCount(System.Collections.Generic.List{Companion.Data.Profile})">
+            <summary>
+            Count the number of characteristics in this profile list.
+            </summary>
+            <param name="profiles">Profile list</param>
+            <returns>Total characteristics count</returns>
+        </member>
+        <member name="M:Companion.Data.SearchExtensions.ContainsName``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            This uses <see cref="M:System.String.Contains(System.String)"/> to see if it contains this name.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="list">List</param>
+            <param name="name">Name</param>
+            <returns>True if it has an entry containing this name</returns>
+        </member>
+        <member name="M:Companion.Data.SearchExtensions.ContainsId``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            This uses <see cref="M:System.String.Equals(System.String)"/> to see if it contains this name.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="list">List</param>
+            <param name="id">Id</param>
+            <returns>True if it has an entry containig this id</returns>
+        </member>
+        <member name="M:Companion.Data.StringExtensions.Trim(System.String[])">
+            <summary>
+            Trim all the whitespace from the strings in this array.
+            </summary>
+            <param name="arr">Array</param>
+        </member>
+        <member name="M:Companion.Data.StringExtensions.TrimStart(System.String[])">
+            <summary>
+            Trim all the leading whitespace from the strings in this array.
+            </summary>
+            <param name="arr">Array</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetAttributeInt(System.Xml.XmlNode,System.String,System.Int32)">
+            <summary>
+            Get an attribute value with the specified name and attempt to convert it to an integer.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <param name="defaultValue">Default value if it is not found or fails to parse</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetAttributeDouble(System.Xml.XmlNode,System.String,System.Double)">
+            <summary>
+            Get an attribute value with the specified name and attempt to convert it to a double.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <param name="defaultValue">Default value if it is not found or fails to parse</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetAttributeBool(System.Xml.XmlNode,System.String,System.Boolean)">
+            <summary>
+            Get an attribute value with the specified name and attempt to convert it to an integer.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <param name="defaultValue">Default value if it is not found or fails to parse</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetAttribute(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get an attribute value with the specified name.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get the nodes by name recursively through all child nodes.
+            </summary>
+            <param name="element">Current node</param>
+            <param name="name">Name</param>
+            <returns>List of nodes found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetNodes(System.Xml.XmlNode,System.Collections.Generic.List{System.Xml.XmlNode},System.String)">
+            <summary>
+            Get the nodes by name recursively through all child nodes and add it to the list of nodes provided.
+            </summary>
+            <param name="element">Current node</param>
+            <param name="nodes">List to add results to</param>
+            <param name="name">Name</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetChildNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get a list of child nodes from the provided node. Always returns at least an empty list.
+            </summary>
+            <param name="element">Node</param>
+            <param name="name">Name</param>
+            <returns>List of child nodes</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetNodesFromPath(System.Xml.XmlNode,System.String[])">
+            <summary>
+            Get a list of nodes from the path provided.
+            </summary>
+            <param name="element">Element to search from</param>
+            <param name="names">Names of the path to found</param>
+            <returns>List of nodes found or empty list if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get a single node by name. If the provided node has that name it will return that node otherwise it will attempt to find it in the children recursively.
+            </summary>
+            <param name="element">Node</param>
+            <param name="name">Name</param>
+            <returns>Node or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.WriteAttribute(System.Xml.XmlWriter,System.String,System.String)">
+            <summary>
+            Write a string value out to the writer.
+            </summary>
+            <param name="writer">Xml Writer</param>
+            <param name="localName">Local name</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.WriteAttribute(System.Xml.XmlWriter,System.String,System.Boolean)">
+            <summary>
+            Write a boolean value out to the writer.
+            </summary>
+            <param name="writer">Xml Writer</param>
+            <param name="localName">Local name</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.WriteAttribute(System.Xml.XmlWriter,System.String,System.Int32)">
+            <summary>
+            Write an integer value out to the writer.
+            </summary>
+            <param name="writer">Xml Writer</param>
+            <param name="localName">Local name</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.WriteAttribute(System.Xml.XmlWriter,System.String,System.Double)">
+            <summary>
+            Write a double value out to the writer. This uses CultureInfo.InvariantCulture and aims to write as compatible as possible with battle scribe by alway writing a decimal place.
+            </summary>
+            <param name="writer">Xml Writer</param>
+            <param name="localName">Local name</param>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.Clone``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Clone this list by creating a new list and calling <see cref="M:Companion.Data.XmlData.Clone``1"/> on every entry.
+            </summary>
+            <typeparam name="T">Type to clone</typeparam>
+            <param name="list">List to clone</param>
+            <returns>New list with cloned entries or null if input list was null</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.Transform``2(System.Collections.Generic.List{``0})">
+            <summary>
+            Transform this list by creating a new list and calling <see cref="M:Companion.Data.ITransformable`1.Transform"/> on each entry.
+            </summary>
+            <typeparam name="T">Type of the input list</typeparam>
+            <typeparam name="E">Type of the return list</typeparam>
+            <param name="list">List to transform</param>
+            <returns>Transformed list</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.Transform``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Transform this list by creating a new list and calling <see cref="M:Companion.Data.ITransformable`1.Transform"/> on each entry.
+            </summary>
+            <typeparam name="T">Type of the input list</typeparam>
+            <param name="list">List to transform</param>
+            <returns>Transformed list</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetDataInParent``1(Companion.Data.XmlData)">
+            <summary>
+            Get the first of this type in any of this object's parents.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <param name="data">Data</param>
+            <returns>First object that matches or null if not</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetDataInParent``1(Companion.Data.XmlData,System.String)">
+            <summary>
+            Get the first of this type in any of this object's parents.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <param name="data">Data</param>
+            <param name="entryId">Entry id</param>
+            <returns>First object that matches or null if not</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetRootInParent``1(Companion.Data.XmlData)">
+            <summary>
+            Get the root of this type in any of this object's parents.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <param name="data">Data</param>
+            <returns>First object that matches or null if not</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetRootEntry(Companion.Data.XmlData)">
+            <summary>
+            Get the root entry. This excludes the root container (catalogue/gamesytem)
+            </summary>
+            <param name="data">Data</param>
+            <returns>First object that matches or null if not</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetRootSelectionEntry(Companion.Data.XmlData)">
+            <summary>
+            Get the root selection entry for this data object.
+            </summary>
+            <param name="data">Data object</param>
+            <returns>Selection Entry Container</returns>
+        </member>
+        <member name="M:Companion.Data.XmlExtensions.GetPath(Companion.Data.XmlData,System.Boolean)">
+            <summary>
+            Get a path to the current object in order of root first to this object last.
+            </summary>
+            <returns>Path</returns>
+        </member>
+        <member name="M:Companion.Data.CategoryEntry.GetModifiedName">
+            <summary>
+            Return the modified name assuming no conditions for said modifier.
+            </summary>
+            <returns>Modified name</returns>
+        </member>
+        <member name="M:Companion.Data.CategoryLink.GetModifiedName">
+            <summary>
+            Return the modified name assuming no conditions for said modifier.
+            </summary>
+            <returns>Modified name</returns>
+        </member>
+        <member name="M:Companion.Data.Condition.Evaluate(Companion.Data.XmlData)">
+            <summary>
+            Evaluate the condition.
+            </summary>
+            <param name="data">Data we are evaluating from</param>
+            <returns>True if conditions are met</returns>
+        </member>
+        <member name="F:Companion.Data.EntryLink.rawName">
+            <summary>
+            Name might have been stripped of formatting. Raw name will be the original name which includes the formatting, i.e.: **Chapter Selector**
+            </summary>
+        </member>
+        <member name="M:Companion.Data.EntryLink.StripName(System.String)">
+            <summary>
+            Strip the name from any * formatting. Not sure why it is used. Example: **Chapter Selector** uses this.
+            </summary>
+            <param name="name">Name to strip</param>
+            <returns></returns>
+        </member>
+        <member name="M:Companion.Data.EntryLink.IsAutoInclude(System.Double@)">
+            <summary>
+            Checks if the constraints for min and max equal one.
+            </summary>
+            <returns>True if auto include</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystem.GetVersionInfo(System.String)">
+            <summary>
+            Get version information from the game system at the specified path.
+            </summary>
+            <param name="path">Path</param>
+            <returns>Version information</returns>
+        </member>
+        <member name="M:Companion.Data.Modifier.Evaluate(Companion.Data.XmlData)">
+            <summary>
+            Evaluate if all condition and condition groups are met.
+            </summary>
+            <param name="data">Data to evaluate from</param>
+            <returns>True if conditions are met</returns>
+        </member>
+        <member name="M:Companion.Data.Modifier.Apply(Companion.Data.XmlData)">
+            <summary>
+            Apply the modifier to the data. NOTE: this is not feature complete and some are not handled.
+            </summary>
+            <param name="data">Data to apply</param>
+        </member>
+        <member name="M:Companion.Data.Publication.ToSimplePublication">
+            <summary>
+            Convert the publication to one for rosters as they don't store the full attributes.
+            </summary>
+            <returns>Copy of this publication with name/id</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.GetModifiedName">
+            <summary>
+            Return the modified name assuming no conditions for said modifier.
+            </summary>
+            <returns>Modified name</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.Transform">
+            <summary>
+            Create a selection from the entry. This does not add the selection to the root container.
+            </summary>
+            <returns>Selection</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.ConstructDefaultEntryGroupId(Companion.Data.EntryLink)">
+            <summary>
+            Attempt to construct an entry group id. Without knowing the initial entry link it's impossible to really construct one accurately working backwards.
+            </summary>
+            <param name="entryLink">Optional entry link, this will improve the accuracy</param>
+            <returns>Entry id</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.ConstructDefaultEntryGroupId(Companion.Data.NeedleStack)">
+            <summary>
+            Attempt to construct an entry group id. Without knowing the initial entry link it's impossible to really construct one accurately working backwards.
+            </summary>
+            <param name="linkStack">Entry stack</param>
+            <returns>Entry id</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.IsAutoInclude(System.Double@)">
+            <summary>
+            Checks if the constraints for min and max equal one.
+            </summary>
+            <returns>True if auto include</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntry.GetMinMaxConstraints(System.Double@,System.Double@)">
+            <summary>
+            Helper to get the min and max constraints for this entry group.
+            </summary>
+            <param name="min">Min: defaults to zero</param>
+            <param name="max">Max: defaults to minus one</param>
+        </member>
+        <member name="M:Companion.Data.SelectionEntryGroup.IsAutoInclude">
+            <summary>
+            Checks if the constraints for min and max equal one.
+            </summary>
+            <returns>True if auto include</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionEntryGroup.GetMinMaxConstraints(System.Double@,System.Double@)">
+            <summary>
+            Helper to get the min and max constraints for this entry group.
+            </summary>
+            <param name="min">Min: defaults to zero</param>
+            <param name="max">Max: defaults to minus one</param>
+        </member>
+        <member name="T:Companion.Data.IEntryContainer">
+            <summary>
+            Container that may hold other entry containers. Normally this would be roster related and not gamesystem or catalogues.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.IEntryContainer.GetEntryId">
+            <summary>
+            Entry id.
+            </summary>
+            <returns>Get entry id</returns>
+        </member>
+        <member name="M:Companion.Data.IEntryContainer.GetEntryGroupId">
+            <summary>
+            Entry group id.
+            </summary>
+            <returns>Get entry group id</returns>
+        </member>
+        <member name="M:Companion.Data.IEntryContainer.GetEntryContainer(System.String,System.Boolean)">
+            <summary>
+            Get the entry container with the matching entry id. This includes the current container as well.
+            </summary>
+            <param name="entryId">Entry id</param>
+            <param name="includeChildEntries">Include child entries</param>
+            <returns>Entry container</returns>
+        </member>
+        <member name="M:Companion.Data.IEntryContainer.GetEntryContainers(System.Collections.Generic.List{Companion.Data.IEntryContainer},System.String,System.Boolean)">
+            <summary>
+            Get the entry containers with the matching entry id. This includes the current container as well.
+            </summary>
+            <param name="containers">Entry containers matching the entry id</param>
+            <param name="entryId">Entry id</param>
+            <param name="includeChildEntries">Include child entries</param>
+            <returns>Entry container</returns>
+        </member>
+        <member name="M:Companion.Data.IEntryContainer.SetName(System.String)">
+            <summary>
+            Set the name.
+            </summary>
+            <param name="name">Name</param>
+        </member>
+        <member name="M:Companion.Data.IIdentifiable.GetId">
+            <summary>
+            Get id.
+            </summary>
+            <returns>Id</returns>
+        </member>
+        <member name="M:Companion.Data.IIdentifiableType.GetTypeId">
+            <summary>
+            Get type id.
+            </summary>
+            <returns>Type id</returns>
+        </member>
+        <member name="T:Companion.Data.ILink">
+            <summary>
+            Link that targets something.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.ILink.GetTargetId">
+            <summary>
+            Get the target id for this link.
+            </summary>
+            <returns>Target id</returns>
+        </member>
+        <member name="M:Companion.Data.ILink.GetTarget(Companion.Data.GameSystemGroup)">
+            <summary>
+            Get the target this link is targeting. The implementation may choose to cache this. If the target is not found this returns null.
+            </summary>
+            <param name="gameSystemGroup">GameSystemGroup to search within</param>
+            <returns>Target or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.INameable.GetName">
+            <summary>
+            Get the name.
+            </summary>
+            <returns>Name</returns>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.AddIdLookup(Companion.Data.IIdentifiable)">
+            <summary>
+            Add a lookup for this identifiable object for speed reasons.
+            </summary>
+            <param name="identifiable">Identifiable object</param>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.AddNameLookup(Companion.Data.INameable)">
+            <summary>
+            Add a lookup for this nameable object for speed reasons.
+            </summary>
+            <param name="nameable">Nameable object</param>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.GetIdentifiable(System.String)">
+            <summary>
+            Get identifiable object with the id or null if not found.
+            </summary>
+            <param name="id">Id</param>
+            <returns>Identifiable object with id if found</returns>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.HasId(System.String)">
+            <summary>
+            Whether the root container already has an object with this unique id.
+            </summary>
+            <param name="uniqueId">Unique id</param>
+            <returns>True if one already exists</returns>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.GenerateUniqueId">
+            <summary>
+            Attempts to generate a unique id. Depending on the implementation there might be cases where this returns a duplicate.
+            </summary>
+            <returns>Unique id</returns>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.GetGameSystemGroup">
+            <summary>
+            Get the game system group for convenience.
+            </summary>
+            <returns>Game System Group</returns>
+        </member>
+        <member name="M:Companion.Data.IRootContainer.SetGameSystemGroup(Companion.Data.GameSystemGroup)">
+            <summary>
+            Set the game system group this is currently loaded in.
+            </summary>
+            <param name="gameSystemGroup">Game system group</param>
+        </member>
+        <member name="M:Companion.Data.IRootEntryContainer.GetEntryLinks">
+            <summary>
+            Get the entry links from this container.
+            </summary>
+            <returns>Entry links</returns>
+        </member>
+        <member name="M:Companion.Data.IRootEntryContainer.GetEntryLinkById(System.String)">
+            <summary>
+            Get the entry links by id.
+            </summary>
+            <param name="id">id</param>
+            <returns>Entry link or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.IRootEntryContainer.GetEntryLinkByTargetId(System.String)">
+            <summary>
+            Get the entry links by target id.
+            </summary>
+            <param name="targetId">Target id</param>
+            <returns>Entry link or null if not found</returns>
+        </member>
+        <member name="T:Companion.Data.ISelectionEntryContainer">
+            <summary>
+            Selection entry container which is either a SelectionEntry, SelectionEntryGroup or EntryLink.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.ISelectionEntryContainer.GetSelectionEntries(Companion.Data.GameSystem)">
+            <summary>
+            Get all the selection entries from this container.
+            </summary>
+            <param name="gameSystem">Game system</param>
+            <returns>Selection Entry</returns>
+        </member>
+        <member name="M:Companion.Data.ISelectionEntryContainer.GetSelectionEntryByName(Companion.Data.GameSystem,System.String,System.Boolean,System.Collections.Generic.List{System.String},Companion.Data.Needle)">
+            <summary>
+            Get selection entry by name.
+            </summary>
+            <param name="gameSystem">Game system </param>
+            <param name="name">Name</param>
+            <param name="contains">Allow partial matches for name</param>
+            <param name="excludedEntries">Ids to exclude</param>
+            <param name="needle">Needle</param>
+            <returns>Selection entry if found</returns>
+        </member>
+        <member name="M:Companion.Data.ISelectionEntryContainer.GetSelectionEntryByName(Companion.Data.GameSystemGroup,System.String,System.Boolean,System.Collections.Generic.List{System.String},Companion.Data.Needle)">
+            <summary>
+            Get selection entry by name.
+            </summary>
+            <param name="gameSystemGroup">Game system group</param>
+            <param name="name">Name</param>
+            <param name="contains">Allow partial matches for name</param>
+            <param name="excludedEntries">Ids to exclude</param>
+            <param name="needle">Needle</param>
+            <returns>Selection result if found</returns>
+        </member>
+        <member name="M:Companion.Data.ISelectionEntryContainer.GetSelectionEntryById(Companion.Data.GameSystemGroup,System.String,Companion.Data.Needle)">
+            <summary>
+            Get selection entry by id.
+            </summary>
+            <param name="gameSystemGroup">Game system group</param>
+            <param name="id">Id</param>
+            <param name="needle">Needle</param>
+            <returns>Selection result if found</returns>
+        </member>
+        <member name="M:Companion.Data.ISelectionEntryContainer.GetEntryLinkById(Companion.Data.GameSystemGroup,System.String,Companion.Data.Needle)">
+            <summary>
+            Get entry link by id.
+            </summary>
+            <param name="gameSystemGroup">Game system group</param>
+            <param name="id">Id</param>
+            <param name="needle">Needle</param>
+            <returns>Entry link if found</returns>
+        </member>
+        <member name="T:Companion.Data.ITransformable">
+            <summary>
+            Transformable interface to transform one object into the other. Mostly here so we can test for ITransformable.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.ITransformable.TransformData">
+            <summary>
+            Transform this object into another xml data.
+            </summary>
+            <returns>Transformed object</returns>
+        </member>
+        <member name="T:Companion.Data.ITransformable`1">
+            <summary>
+            Transformable interface to transform one object into the other.
+            </summary>
+            <typeparam name="T">Type to transform into</typeparam>
+        </member>
+        <member name="M:Companion.Data.ITransformable`1.Transform">
+            <summary>
+            Transform this object into the return class.
+            </summary>
+            <returns>Transformed object</returns>
+        </member>
+        <member name="F:Companion.Data.Cost.PointsTypeId">
+            <summary>
+            Constant type id value for points. By default: "points".
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Roster.AddIdLookup(Companion.Data.IIdentifiable)">
+            <summary>
+            Add a lookup for this identifiable object for speed reasons.
+            </summary>
+            <param name="identifiable">Identifiable object</param>
+        </member>
+        <member name="M:Companion.Data.Roster.SaveRosterXml">
+            <summary>
+            Save roster xml.
+            </summary>
+            <returns>Return byte data of text</returns>
+        </member>
+        <member name="M:Companion.Data.Roster.SaveRosterXml(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Save this roster as xml to a .rosz file.
+            </summary>
+            <param name="folder">Folder to save to</param>
+            <param name="name">File name minus the extension</param>
+            <param name="overwrite">Whether to overwrite the file (default to false)</param>
+            <param name="compressed">Whether to compress the file (default to true)</param>
+            <returns>Return true if successful</returns>
+        </member>
+        <member name="M:Companion.Data.Roster.SaveRosterXml(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Save this roster as xml to a file. If the file extension ends with z it will automatically get compressed.
+            </summary>
+            <param name="filePath">Folder to save to</param>
+            <param name="overwrite">Whether to overwrite the file (defaults to false)</param>
+            <param name="validateExtension">Whether to validate the extension matches .ros or .rosz (defaults to true)</param>
+            <returns>Return true if successful</returns>
+        </member>
+        <member name="M:Companion.Data.Roster.HasValidCosts">
+            <summary>
+            Checks if any costs have a value larger than zero.
+            </summary>
+            <returns>True if it has valid costs</returns>
+        </member>
+        <member name="M:Companion.Data.Roster.MergeSelections(System.String[])">
+            <summary>
+            Merge any selections in the forces if they match. This will go over every selection. This uses <see cref="M:Companion.Data.Utils.SortingUtils.MergeSelections(System.Collections.Generic.List{Companion.Data.Selection},System.String[])"/>. This cannot be undone.
+            </summary>
+            <param name="ignoreTypes">Selection types to never merge</param>
+        </member>
+        <member name="F:Companion.Data.Selection.categoriesSorted">
+            <summary>
+            Make sure this is only done once, we are likely not sorting it again.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Selection.SortCategories">
+            <summary>
+            Sort the categories by primary = true.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Selection.GetParentSelection">
+            <summary>
+            Get parent selection or null if selection is not it's parent
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Companion.Data.Selection.GetAllProfiles(System.Boolean)">
+            <summary>
+            Get all the profiles. This returns a new list every time with the profiles by reference.
+            </summary>
+            <param name="includeSubselections">If true include subselections (recursively)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Companion.Data.Selection.IsUnitSelection">
+            <summary>
+            Returns true for models, units and upgrades that have units or models within them.
+            </summary>
+            <returns>True if unit selection</returns>
+        </member>
+        <member name="M:Companion.Data.Selection.GetSelectionEntryId">
+            <summary>
+            Get id of the <see cref="T:Companion.Data.SelectionEntry"/> if available, this uses <see cref="F:Companion.Data.Selection.entryId"/>.
+            </summary>
+            <returns>Selection entry id</returns>
+        </member>
+        <member name="M:Companion.Data.Selection.GetSelectionEntryGroupId">
+            <summary>
+            Get id of the <see cref="T:Companion.Data.SelectionEntry"/> if available, this uses <see cref="F:Companion.Data.Selection.entryId"/>.
+            </summary>
+            <returns>Selection entry id</returns>
+        </member>
+        <member name="M:Companion.Data.Selection.GetEntryLinkId">
+            <summary>
+            Get id of the <see cref="T:Companion.Data.SelectionEntry"/> if available, this uses <see cref="F:Companion.Data.Selection.entryId"/>.
+            </summary>
+            <returns>Selection entry id</returns>
+        </member>
+        <member name="T:Companion.Data.GameSystemGroup">
+            <summary>
+            Group of catalogues and systems used in a roster. Mostly for roster detection speed.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.Init">
+            <summary>
+            Link all loaded data to this group for convenience.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.CreateGuid">
+            <summary>
+            Creates a new guid that is unique for this game system and catalogues.
+            </summary>
+            <returns>New guid</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.ContainsGuid(System.String)">
+            <summary>
+            Checks if the game system group contains the specified guid.
+            </summary>
+            <param name="guid">Guid to check</param>
+            <returns>True if it is present</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.AddCatalogue(Companion.Data.Catalogue)">
+            <summary>
+            Add this catalogue to the group. If the catalogue has any links it will add those as well.
+            </summary>
+            <param name="catalogue">Catalogue to add</param>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.ResetCatalogues">
+            <summary>
+            Clear all the catalogues in this group.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchAllByName``1(System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching name into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further. This method prioritises catalogues before game systems.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="name">Name</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchAllByName``1(System.Predicate{System.String},System.Boolean)">
+            <summary>
+            This collects all the data with matching name into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further. This method prioritises catalogues before game systems.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="namePredicate">Predicate to compare name with</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchAllById``1(System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching id into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further. This method prioritises catalogues before game systems.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="id">Id</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchByIdCached(System.String)">
+            <summary>
+            Returns the first identifiable data that matches this id. This method uses the lookup. This method prioritises catalogues before game systems.
+            </summary>
+            <param name="id">Id to match</param>
+            <returns>Data or null if none match</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchById``1(System.String,System.Boolean)">
+            <summary>
+            Searches everything for this id and return the first one from the list.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="id">Id to match</param>
+            <param name="recursive">True if recursive</param>
+            <returns>First type that has a matching id</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchLinksByTargetId(System.String,System.Boolean)">
+            <summary>
+            Search links by target id. Returns all matching ids. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.SearchLinkByTargetId(System.String,System.Boolean)">
+            <summary>
+            Search link by target id. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.GetSelectionEntryByName(System.String,System.Boolean,System.Collections.Generic.List{System.String})">
+            <summary>
+            Search catalogues and gamesystem for the first selection entry in their entry links that match the name. This method prioritises catalogues before game systems.
+            </summary>
+            <param name="name">Name to match</param>
+            <param name="contains">True to use contains instead of equals for the name comparison</param>
+            <param name="excludedSelectionEntries">List of excluded selection entry id</param>
+            <returns>Selection result or null if none found</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.GetSelectionEntryById(System.String,Companion.Data.Needle)">
+            <summary>
+            Search catalogues and gamesystem for the first selection entry in their entry links that match the id. This method prioritises catalogues before game systems.
+            </summary>
+            <param name="id">Id to match</param>
+            <param name="needle">Needle</param>
+            <returns>Selection result or null if none found</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.ResolveEntryPath(System.String)">
+            <summary>
+            Resolve an entry path. Note: If the entry is not found it just adds null entries to the list.
+            </summary>
+            <param name="path">Path</param>
+            <returns>List of resolved entries</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.GetEntryLinkById(System.String)">
+            <summary>
+            Get the entry links by id.
+            </summary>
+            <param name="id">id</param>
+            <returns>Entry link or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.GetEntryLinkByTargetId(System.String)">
+            <summary>
+            Get the entry links by target id.
+            </summary>
+            <param name="targetId">Target id</param>
+            <returns>Entry link or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.GameSystemGroup.GetFirstCatalogue">
+            <summary>
+            Get the first catalogue in this game system group.
+            </summary>
+            <returns>First catalogue or null</returns>
+        </member>
+        <member name="T:Companion.Data.GameSystemLoading">
+            <summary>
+            Track loading the game system.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.GameSystemLoading.OnProgressUpdate">
+            <summary>
+            Fired when progress update is due. This is on the main thread if <see cref="T:CompanionFramework.Core.Threading.Messaging.MessageQueue"/> is supported.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.GameSystemLoading.OnLoadingCompleted">
+            <summary>
+            Fired when completed. Source is this.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.GameSystemLoading.OnLoadingFailed">
+            <summary>
+            Fired when failed. Source is this.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.GameSystemLoading.GetGameSystemGroup">
+            <summary>
+            Get the game system group. This never returns null. If this has failed game system or catalogues may not be populated.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Companion.Data.GuidGenerator">
+            <summary>
+            Wrapper for Guid generation
+            </summary>
+        </member>
+        <member name="M:Companion.Data.GuidGenerator.Generate">
+            <summary>
+            Default guid generator across the systems. Mostly a wrapper for <see cref="T:Companion.Data.Utils.GuidUtils"/> calls.
+            </summary>
+            <returns>New guid</returns>
+        </member>
+        <member name="M:Companion.Data.System.IGuidGenerator.GenerateGuid">
+            <summary>
+            Default guid generator across the systems. Mostly a wrapper for <see cref="T:Companion.Data.Utils.GuidUtils"/> calls.
+            </summary>
+            <returns>New guid</returns>
+        </member>
+        <member name="E:Companion.Data.AbstractRosterReader.OnRosterParsed">
+            <summary>
+            Dispatched on the main (unity) thread. Source is <see cref="T:Companion.Data.RosterResult"/>. EventArgs is null.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.AbstractRosterReader.OnGameSystemDetected">
+            <summary>
+            Dispatched on the main (unity) thread. Source is <see cref="T:Companion.Data.GameSystem"/>. EventArgs is null.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.AbstractRosterReader.DetectGameSystem">
+            <summary>
+            Detect the game system from the roster tokens.
+            </summary>
+            <returns>Game system or null if none detected</returns>
+        </member>
+        <member name="M:Companion.Data.AbstractRosterReader.DetectGameSystemAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            Detect the game system from the roster tokens and the provided game system paths. NOTE: This may cause game systems to be loaded which can take several seconds.
+            </summary>
+            <param name="gameSystemPaths">List to game systems</param>
+        </member>
+        <member name="M:Companion.Data.AbstractRosterReader.DetectGameSystem(System.Collections.Generic.List{System.String})">
+            <summary>
+            Detect the game system from the roster tokens and the provided game system paths. NOTE: This may cause game systems to be loaded which can take several seconds.
+            </summary>
+            <param name="gameSystemPaths">List to game systems</param>
+            <returns>Game system or null if none detected</returns>
+        </member>
+        <member name="M:Companion.Data.AbstractRosterReader.ParseAsync(Companion.Data.GameSystem)">
+            <summary>
+            Parse the roster on the threadpool.
+            </summary>
+            <param name="gameSystem">Game System</param>
+        </member>
+        <member name="M:Companion.Data.AbstractRosterReader.Parse(Companion.Data.GameSystem)">
+            <summary>
+            Attempt to parse the roster and detect the selections. If no <see cref="T:Companion.Data.GameSystem"/> is provided we attempt to detect the game system.
+            </summary>
+            <param name="gameSystem">Game system, optional</param>
+            <returns>Roster result</returns>
+        </member>
+        <member name="F:Companion.Data.ForceToken.name">
+            <summary>
+            Name without cost
+            </summary>
+        </member>
+        <member name="F:Companion.Data.ForceToken.fullName">
+            <summary>
+            Name with cost included
+            </summary>
+        </member>
+        <member name="F:Companion.Data.ForceToken.cost">
+            <summary>
+            Cost string
+            </summary>
+        </member>
+        <member name="F:Companion.Data.ForceToken.faction">
+            <summary>
+            Factions tring
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Needle">
+            <summary>
+            Keep track of where a search result is going.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Needle.Push(Companion.Data.XmlData)">
+            <summary>
+            Push an object to the path.
+            </summary>
+            <param name="data">Data to push</param>
+        </member>
+        <member name="M:Companion.Data.Needle.Pop">
+            <summary>
+            Pop the latest object.
+            </summary>
+            <returns>Latest object or null</returns>
+        </member>
+        <member name="M:Companion.Data.Needle.GetLinks``1">
+            <summary>
+            Get all links from the needle that match the type. Always returns a new list.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <returns>Links</returns>
+        </member>
+        <member name="M:Companion.Data.Needle.GetAll``1">
+            <summary>
+            Get all the items from the needle that match the type. Always returns a new list.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <returns>All items that match</returns>
+        </member>
+        <member name="M:Companion.Data.Needle.GetFirst``1">
+            <summary>
+            Get the first entry of the provided type.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <returns>First entry or null</returns>
+        </member>
+        <member name="M:Companion.Data.Needle.GetPath">
+            <summary>
+            Get all the entries in the path.
+            </summary>
+            <returns>List of entries</returns>
+        </member>
+        <member name="M:Companion.Data.Needle.Clear">
+            <summary>
+            Clear this needle of all entries.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.NeedleStack">
+            <summary>
+            Link stack for roster detection. Backed by a list.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.Peek">
+            <summary>
+            Peek at the last entry in the stack. If the stack is empty it returns null.
+            </summary>
+            <returns>Latest selection</returns>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.MarkParent">
+            <summary>
+            Mark the current stack index. Use <see cref="M:Companion.Data.NeedleStack.PopToMark"/> to reset the stack back to this index.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.Mark">
+            <summary>
+            Mark the current stack index. Use <see cref="M:Companion.Data.NeedleStack.PopToMark"/> to reset the stack back to this index.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.PopToMark">
+            <summary>
+            Clear the stack until we hit the marked index set by <see cref="M:Companion.Data.NeedleStack.Mark"/>. This then resets the mark.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.PopToParentMark">
+            <summary>
+            Clear the stack until we hit the marked index set by <see cref="M:Companion.Data.NeedleStack.MarkParent"/>. This then resets the mark.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.Pop">
+            <summary>
+            Pop the selection from the stack and return it. If the stack is empty it returns null.
+            </summary>
+            <returns>Latest selection</returns>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.GetRoot">
+            <summary>
+            Root entry link.
+            </summary>
+            <returns>Entry link</returns>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.Clear">
+            <summary>
+            Clear all the entries and the marked index.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.GetEntryAt(System.Int32)">
+            <summary>
+            Get the entry at the index if it is a valid index.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Entry</returns>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.GetLinks``1">
+            <summary>
+            Get all the links that match the type provided. Always returns a new list.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <returns>Links</returns>
+        </member>
+        <member name="M:Companion.Data.NeedleStack.GetAll``1">
+            <summary>
+            Get all entries that match the type provided. Always returns a new list.
+            </summary>
+            <typeparam name="T">Type to match</typeparam>
+            <returns>Entries</returns>
+        </member>
+        <member name="M:Companion.Data.RosterReader.Parse(Companion.Data.GameSystem)">
+            <summary>
+            Attempt to parse the roster and detect the selections. If no <see cref="T:Companion.Data.GameSystem"/> is provided we attempt to detect the game system.
+            </summary>
+            <param name="gameSystem">Game system, optional</param>
+            <returns>Roster result</returns>
+        </member>
+        <member name="F:Companion.Data.RosterResult.roster">
+            <summary>
+            Roster that has been parsed.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.RosterTokenReader.ReadAllTokens">
+            <summary>
+            Reads all the tokens and then resets.
+            </summary>
+            <returns>List of all roster tokens</returns>
+        </member>
+        <member name="M:Companion.Data.RosterTokenReader.ReadTokens(Companion.Data.RosterTokenType)">
+            <summary>
+            Read all the tokens of a specific type. This reads all the tokens and then resets.
+            </summary>
+            <param name="tokenType">Token type</param>
+            <returns>List of fitered roster tokens</returns>
+        </member>
+        <member name="T:Companion.Data.SelectionStack">
+            <summary>
+            Selection stack for roster detection. Backed by a list.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.SelectionStack.Peek">
+            <summary>
+            Peek at the last entry in the stack. If the stack is empty it returns null.
+            </summary>
+            <returns>Latest selection</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionStack.Pop">
+            <summary>
+            Pop the selection from the stack and return it. If the stack is empty it returns null.
+            </summary>
+            <returns>Latest selection</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionStack.PopToParent(System.Int32)">
+            <summary>
+            Find the parent index in the previous selections. It removes any selections on the stack up to that parent.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Parent</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionStack.GetParent(System.Int32)">
+            <summary>
+            Find the parent index in the previous selections.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Parent</returns>
+        </member>
+        <member name="F:Companion.Data.SelectionToken.ignoreSubentries">
+            <summary>
+            Flag to make sure it never goes recursive for this fallback.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.WordReader">
+            <summary>
+            Simple reader that reads words. 
+            </summary>
+        </member>
+        <member name="T:Companion.Data.RepositoryUpdate">
+            <summary>
+            Track updating the repository.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.RepositoryUpdate.OnDownloadUpdate">
+            <summary>
+            Fired when a download reports progress. This is most likely fired on whatever thread this is called from
+            </summary>
+        </member>
+        <member name="T:Companion.Data.RootContainer">
+            <summary>
+            Root container for the data classes.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.RootContainer.gameSystemGroup">
+            <summary>
+            Current game system group this container belongs to.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.RootContainer.path">
+            <summary>
+            Path this was read from (if available). This is mainly here for simplicity, might move out of here in the future.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.RootContainer.#ctor(System.Xml.XmlNode,Companion.Data.XmlData)">
+            <summary>
+            Create a new data class from a node. This parses the node automatically.
+            </summary>
+            <param name="node">Node to parse</param>
+            <param name="parent">Optional parent</param>
+        </member>
+        <member name="M:Companion.Data.RootContainer.GetIdentifiable(System.String)">
+            <summary>
+            Get identifiable object with the id or null if not found.
+            </summary>
+            <param name="id">Id</param>
+            <returns>Identifiable object with id if found</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.GetNameables(System.String)">
+            <summary>
+            Get nameable objects with the names or null if not found.
+            </summary>
+            <param name="name">Name</param>
+            <returns>Nameables for this name if found</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.HasId(System.String)">
+            <summary>
+            Whether the root container already has an object with this unique id.
+            </summary>
+            <param name="uniqueId">Unique id</param>
+            <returns>True if one already exists</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.GenerateUniqueId">
+            <summary>
+            Attempts to generate a unique id. IF it cannot find a unique id in 1000 attempts it will return a duplicate.
+            </summary>
+            <returns>Unique id</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.AddIdLookup(Companion.Data.IIdentifiable)">
+            <summary>
+            Add a lookup for this identifiable object for speed reasons.
+            </summary>
+            <param name="identifiable">Identifiable object</param>
+        </member>
+        <member name="M:Companion.Data.RootContainer.AddNameLookup(Companion.Data.INameable)">
+            <summary>
+            Add a lookup for this nameable object for speed reasons.
+            </summary>
+            <param name="nameable">Nameable object</param>
+        </member>
+        <member name="M:Companion.Data.RootContainer.GetPath">
+            <summary>
+            Get the full path this was read from (if read from a file and set).
+            </summary>
+            <returns>Path</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.SetPath(System.String)">
+            <summary>
+            Set the full path this was read from.
+            </summary>
+            <param name="path">Path</param>
+        </member>
+        <member name="M:Companion.Data.RootContainer.GetGameSystemGroup">
+            <summary>
+            Get the game system group for convenience.
+            </summary>
+            <returns>Game System Group</returns>
+        </member>
+        <member name="M:Companion.Data.RootContainer.SetGameSystemGroup(Companion.Data.GameSystemGroup)">
+            <summary>
+            Set the game system group this is currently loaded in.
+            </summary>
+            <param name="gameSystemGroup">Game system group</param>
+        </member>
+        <member name="M:Companion.Data.RootEntryContainer.GetEntryLinkById(System.String)">
+            <summary>
+            Get the entry links by id.
+            </summary>
+            <param name="id">id</param>
+            <returns>Entry link or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.RootEntryContainer.GetEntryLinksDependingOn(System.Collections.Generic.List{Companion.Data.EntryLink},System.String)">
+            <summary>
+            Checks every <see cref="T:Companion.Data.EntryLink"/> recursively to see if it has a dependency on this id.
+            </summary>
+            <param name="results">List of results</param>
+            <param name="id">Id to find</param>
+        </member>
+        <member name="M:Companion.Data.RootEntryContainer.GetEntryLinksDependingOn(System.String)">
+            <summary>
+            Checks every <see cref="T:Companion.Data.EntryLink"/> recursively to see if it has a dependency on this id and returns them. 
+            </summary>
+            <param name="id">Id to find</param>
+            <returns>List of relevant entry links</returns>
+        </member>
+        <member name="M:Companion.Data.RootEntryContainer.GetEntryLinks">
+            <inheritdoc/>
+        </member>
+        <member name="M:Companion.Data.SelectionResult.GetSelectionEntriesByName(Companion.Data.GameSystemGroup,System.String,System.Boolean)">
+            <summary>
+            Get selection entry by name from the result. This attempts to find it in the entry link first and the selection entry second.
+            </summary>
+            <param name="gameSystemGroup">GameSystemGroup</param>
+            <param name="name">Name</param>
+            <param name="allowPartialMatches">True if partial matches are allowed</param>
+            <returns>Selection results may be empty if none found</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionResult.GetSelectionEntryByName(Companion.Data.GameSystemGroup,Companion.Data.Needle@,System.String,System.Boolean,System.Collections.Generic.List{System.String})">
+            <summary>
+            Get selection entry by name from the result. This attempts to find it in the entry link first and the selection entry second.
+            </summary>
+            <param name="gameSystemGroup">GameSystemGroup</param>
+            <param name="name">Name</param>
+            <param name="allowPartialMatches">True if partial matches are allowed</param>
+            <param name="excludedSelectionEntries">List of excluded entry ids</param>
+            <param name="needle">Search needle</param>
+            <returns>Selection result or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.SelectionResult.GetSelectionEntryById(Companion.Data.GameSystemGroup,Companion.Data.Needle@,System.String)">
+            <summary>
+            Get selection entry by name from the result. This attempts to find it in the entry link first and the selection entry second.
+            </summary>
+            <param name="gameSystemGroup">GameSystemGroup</param>
+            <param name="id">Id</param>
+            <param name="needle">Needle</param>
+            <returns>Selection result or null if not found</returns>
+        </member>
+        <member name="E:Companion.Data.Update.CoreUpdateProcess.LoadingComplete">
+            <summary>
+            Fired when the process completed.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.CoreUpdateProcess.LoadingAborted">
+            <summary>
+            Fired when the process is aborted.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Execute(Companion.Data.Update.RepositoryData)">
+            <summary>
+            Execute the update process and passes any state through.
+            </summary>
+            <param name="state">current state</param>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.GetState">
+            <summary>
+            The update state this process handles.
+            </summary>
+            <returns>update state</returns>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Abort">
+            <summary>
+            Aborts the process. Fires the abort event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Abort(Companion.Data.Update.UpdateError,System.String)">
+            <summary>
+            Aborts the process. Fires the abort event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Complete">
+            <summary>
+            Complete the process. Fires the complete event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Complete(System.Object)">
+            <summary>
+            Complete the process. Fires the complete event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Cleanup">
+            <summary>
+            Cleanup. Fired from Abort() and Complete(). By default does nothing.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.GetMaxRetries">
+            <summary>
+            How many times it should retry. By default it does not.
+            </summary>
+            <returns>Maximum retries</returns>
+        </member>
+        <member name="M:Companion.Data.Update.CoreUpdateProcess.Retry(Companion.Data.Update.RepositoryData)">
+            <summary>
+            Retry the operation.
+            </summary>
+            <param name="state">State</param>
+        </member>
+        <member name="M:Companion.Data.Update.DataIndexVersionInfo.GetVersionInfo(System.Byte[],System.String,System.String)">
+            <summary>
+            Get the version information from the compressed data file on disk.
+            </summary>
+            <param name="data">Byte data</param>
+            <param name="fileExtension">The extension of the compressed file starting with a period</param>
+            <param name="elementName">The name of the first element in the xml file that needs to match</param>
+            <returns>Version information</returns>
+        </member>
+        <member name="M:Companion.Data.Update.DataIndexVersionInfo.GetGameSystemVersionInfo(System.String)">
+            <summary>
+            Helper method to get version information from the compressed file. Get the version information from the compressed data file on disk.
+            </summary>
+            <param name="path">Path of the compressed game system</param>
+            <returns>Version information</returns>
+        </member>
+        <member name="T:Companion.Data.Update.Repository">
+            <summary>
+            Holds the repository information retrieved 
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.Repository.#ctor(LitJson.JsonData)">
+            <summary>
+            Create a repository from the json provided.
+            </summary>
+            <param name="jsonData">Json data</param>
+        </member>
+        <member name="M:Companion.Data.Update.Repository.Write(LitJson.JsonWriter)">
+            <summary>
+            Write this object out as a json object.
+            </summary>
+            <param name="writer">Json Writer to use</param>
+        </member>
+        <member name="T:Companion.Data.Update.GameSystemData">
+            <summary>
+            Storing the linked data as a data index always needs a repository.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Update.RepositoryData">
+            <summary>
+            Class to hold repository data as it gets loaded.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.RepositoryData.url">
+            <summary>
+            The url to read the repository index from.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.RepositoryData.repositoryIndex">
+            <summary>
+            Repository index if loaded, can be null if not loaded.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.RepositoryData.dataIndices">
+            <summary>
+            Data index if loaded, can be null if not loaded. Repository Index must be loaded before this can be loaded.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.RepositoryData.OnDataIndexAdded">
+            <summary>
+            Fired when data index is received from a repository. Source is <see cref="T:Companion.Data.Update.RepositoryData"/>. EventArgs is <see cref="T:Companion.Data.Update.DataIndexSuccessEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.RepositoryData.OnDataIndexFailed">
+            <summary>
+            Fired when it failed to receive the data index from a repository. Source is <see cref="T:Companion.Data.Update.RepositoryData"/>. EventArgs is <see cref="T:Companion.Data.Update.ProcessFailedEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.RepositoryData.OnRepositoryIndexAdded">
+            <summary>
+            Fired when repository index is received. Source is <see cref="T:Companion.Data.Update.RepositoryData"/>. EventArgs is <see cref="T:Companion.Data.Update.RepositoryIndexSuccessEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.RepositoryData.OnRepositoryIndexFailed">
+            <summary>
+            Fired when it failed to receive the repository index. Source is <see cref="T:Companion.Data.Update.RepositoryData"/>. EventArgs is <see cref="T:Companion.Data.Update.ProcessFailedEventArgs"/>.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.RepositoryData.AddGameSystem(Companion.Data.Update.Repository,Companion.Data.DataIndex)">
+            <summary>
+            Add Game System with <see cref="T:Companion.Data.DataIndex"/>.
+            </summary>
+            <param name="repository">Repository</param>
+            <param name="dataIndex">Data index</param>
+            <returns>Game System Data</returns>
+        </member>
+        <member name="M:Companion.Data.Update.RepositoryData.GetGameSystem(Companion.Data.Update.Repository)">
+            <summary>
+            Get the game system data for this repository if it's present. If it's not loaded returns null.
+            </summary>
+            <param name="repository">Repository to get the data from</param>
+            <returns>Game system data</returns>
+        </member>
+        <member name="M:Companion.Data.Update.RepositoryData.GetDataIndex(Companion.Data.Update.Repository)">
+            <summary>
+            Get the data index by the repository. This is short for GetGameSystem(repository).dataIndex.
+            </summary>
+            <param name="repository">Repository</param>
+            <returns>Data index</returns>
+        </member>
+        <member name="T:Companion.Data.Update.ProcessEventArgs">
+            <summary>
+            Base class for arguments by all process events
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Update.IUpdateProcess">
+            <summary>
+            Handles updating the data files.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.IUpdateProcess.LoadingComplete">
+            <summary>
+            Fired when the process completed.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.IUpdateProcess.LoadingAborted">
+            <summary>
+            Fired when the process is aborted.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.IUpdateProcess.Execute(Companion.Data.Update.RepositoryData)">
+            <summary>
+            Execute the update process and passes any state through.
+            </summary>
+            <param name="state">current state</param>
+        </member>
+        <member name="M:Companion.Data.Update.IUpdateProcess.Abort">
+            <summary>
+            Aborts the process.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Update.MultipleUpdateProcess">
+            <summary>
+            Multiple update process.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.MultipleUpdateProcess.LoadingComplete">
+            <summary>
+            Fired when the process completed.
+            </summary>
+        </member>
+        <member name="E:Companion.Data.Update.MultipleUpdateProcess.LoadingAborted">
+            <summary>
+            Fired when the process is aborted.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.MultipleUpdateProcess.Abort">
+            <summary>
+            Aborts the process. Fires the abort event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.MultipleUpdateProcess.Abort(Companion.Data.Update.UpdateError,System.String)">
+            <summary>
+            Aborts the process. Fires the abort event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.MultipleUpdateProcess.Complete">
+            <summary>
+            Complete the process. Fires the complete event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.MultipleUpdateProcess.Complete(System.Object)">
+            <summary>
+            Complete the process. Fires the complete event.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.MultipleUpdateProcess.Cleanup">
+            <summary>
+            Cleanup. Fired from Abort() and Complete(). By default does nothing.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Update.RetrieveDataIndexProcess">
+            <summary>
+            Retrieve the data index from the repository index. This reads the .bsi file (battle scribe index/zipped xml) from the repository index url and create a <see cref="T:Companion.Data.DataIndex"/> from it.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveDataIndexProcess.#ctor(Companion.Data.Update.Repository,System.Boolean)">
+            <summary>
+            Creates a process to retrieve the data index from the repository index.
+            </summary>
+            <param name="repository">Repository to get index url from</param>
+            <param name="async">If true the networking will be asynchronous</param>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveDataIndexProcess.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a process to retrieve the data index from the repository index.
+            </summary>
+            <param name="url">Repository index url</param>
+            <param name="async">If true the networking will be asynchronous</param>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveDataIndexProcess.Execute(Companion.Data.Update.RepositoryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveDataIndexProcess.GetState">
+            <inheritdoc/>
+        </member>
+        <member name="T:Companion.Data.Update.RetrieveRepositoryIndexProcess">
+            <summary>
+            Retrieves the index of game systems from the repository url. This reads the json from the repository and creates a <see cref="T:Companion.Data.Update.RepositoryIndex"/> from it.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveRepositoryIndexProcess.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a process to retrieve the index of game systems.
+            </summary>
+            <param name="url">Repository url</param>
+            <param name="async">If true the networking will be asynchronous</param>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveRepositoryIndexProcess.Execute(Companion.Data.Update.RepositoryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Companion.Data.Update.RetrieveRepositoryIndexProcess.GetState">
+            <inheritdoc/>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.Error">
+            <summary>
+            Default generic error.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.MissingState">
+            <summary>
+            No state was not provided to the process (null).
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.InvalidParameter">
+            <summary>
+            Invalid parameter passed to the process.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.FailedNetworkResponse">
+            <summary>
+            We failed to get a valid network response.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.InvalidRepositoryIndex">
+            <summary>
+            Repository index data from the network was invalid.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.InvalidDataIndex">
+            <summary>
+            Data index from the network was invalid.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.Update.UpdateError.FailedFileAccess">
+            <summary>
+            Unable to access files.
+            </summary>
+        </member>
+        <member name="T:Companion.Data.Update.UpdateGameSystemProcess">
+            <summary>
+            Updates a game system from a repository. It will check which files need updating in the data index and download those files only.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.#ctor(Companion.Data.Update.Repository,Companion.Data.DataIndex,System.String,System.Boolean)">
+            <summary>
+            Create a new update system process.
+            </summary>
+            <param name="repository">Repository to update from</param>
+            <param name="dataIndex">Data index retrieved from repository</param>
+            <param name="dataPath">File path where the data should reside</param>
+            <param name="async">Whether to update async</param>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.Execute(Companion.Data.Update.RepositoryData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.GetUpdateDataIndices">
+            <summary>
+            Get a list of the catalogues and game systems from the data index that need updating.
+            </summary>
+            <returns>List of data index entries that require updating</returns>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.RequiresUpdate(Companion.Data.DataIndexEntry)">
+            <summary>
+            Checks whether the file exists and if it does whether it has an up to date version. If the file is not readable it will also return true.
+            </summary>
+            <param name="entry">Entry</param>
+            <returns>Returns true if it requires updating</returns>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.GetState">
+            <inheritdoc/>
+        </member>
+        <member name="M:Companion.Data.Update.UpdateGameSystemProcess.SetRepositoryUpdate(Companion.Data.RepositoryUpdate)">
+            <summary>
+            Optionally store the repository update for keeping track of progress during the update process.
+            </summary>
+            <param name="repositoryUpdate">Repository update</param>
+        </member>
+        <member name="M:Companion.Data.DataIndexEntry.GetDataNameSafe">
+            <summary>
+            Return the data name minus any characters that are not valid.
+            </summary>
+            <returns>Safe data name</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.CommonTextUtils.GetIdChain(System.String)">
+            <summary>
+            Split the id by separating the entries. This is normally denoted by '::'. If none found it will return an empty list.
+            </summary>
+            <param name="id">Id to separate</param>
+            <returns>Chain in order from left to right</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.CommonTextUtils.GetFirstIdInChain(System.String)">
+            <summary>
+            Get the first id in the chain. If there is no :: in the chain it simply returns the id.
+            </summary>
+            <param name="id">Id chain</param>
+            <returns>First id</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.CommonTextUtils.GetLastIdInChain(System.String)">
+            <summary>
+            Get the last id in the chain. If there is no :: in the chain it simply returns the id.
+            </summary>
+            <param name="id">Id chain</param>
+            <returns>Last id</returns>
+        </member>
+        <member name="T:Companion.Data.Utils.GameDataUtils">
+            <summary>
+            A class for things that don't belong in other utils classes.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ResolveIdChainToText(Companion.Data.GameSystemGroup,System.String)">
+            <summary>
+            For debugging id chains. For example: "44e3-c224-ba82-1b55::f29d-8a5d-18b6-a071" to their names.
+            </summary>
+            <param name="gameSystemGroup">Game System Group to use</param>
+            <param name="id">Id</param>
+            <returns>Output for this chain</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ConstructIdChain(System.Collections.Generic.List{Companion.Data.IIdentifiable},System.Boolean)">
+            <summary>
+            Construct an id chain.
+            </summary>
+            <param name="path">Path</param>
+            <param name="reverse">If true the root of the path is at the back of the list</param>
+            <returns>Id chain</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ConstructIdChain(System.Collections.Generic.List{Companion.Data.XmlData},System.Boolean)">
+            <summary>
+            Construct an id chain.
+            </summary>
+            <param name="path">Path</param>
+            <param name="reverse">If true the root of the path is at the back of the list</param>
+            <returns>Id chain</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.AddValidLinks(System.Collections.Generic.List{Companion.Data.ILink},System.Collections.Generic.List{Companion.Data.IIdentifiable})">
+            <summary>
+            Add valid links applies to following rule: if the first entry link is followed by an entry link that is its child skip that entry.
+            </summary>
+            <param name="links">Links to add</param>
+            <param name="path">Path</param>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ResolveToRootEntry(Companion.Data.IRootContainer,System.String)">
+            <summary>
+            Resolve this entry to the root <see cref="T:Companion.Data.EntryLink"/>. This is mainly for constructing id chains/paths.
+            </summary>
+            <param name="rootContainer">Root container that must have a game system group</param>
+            <param name="id">Id to resolve</param>
+            <returns>Data for the root or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ResolveToRootEntry(Companion.Data.IRootContainer,Companion.Data.XmlData)">
+            <summary>
+            Resolve this entry to the root <see cref="T:Companion.Data.EntryLink"/>. This is mainly for constructing id chains/paths.
+            </summary>
+            <param name="rootContainer">Root container that must have a game system group</param>
+            <param name="linkData">Data to resolve</param>
+            <returns>Data for the root or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ResolveToRootEntries(Companion.Data.IRootContainer,System.String)">
+            <summary>
+            Find every link to a root <see cref="T:Companion.Data.EntryLink"/>. If no results are found it returns an empty list. NOTE: This method is slow.
+            </summary>
+            <param name="rootContainer">Root container that must have a game system group</param>
+            <param name="id">Id to resolve</param>
+            <returns>List of root entries</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GameDataUtils.ResolveToRootEntries(Companion.Data.IRootContainer,System.Collections.Generic.List{Companion.Data.XmlData},Companion.Data.XmlData)">
+            <summary>
+            Find a single link to a root <see cref="T:Companion.Data.EntryLink"/>. If no results are found it returns an empty list. NOTE: This method is slow.
+            </summary>
+            <param name="rootContainer">Root container that must have a game system group</param>
+            <param name="results">Results list</param>
+            <param name="linkData">Data to resolve</param>
+        </member>
+        <member name="T:Companion.Data.Utils.GuidUtils">
+            <summary>
+            Generate globally unique identifier. Well maybe not globally in this case.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Utils.GuidUtils.GenerateStandardGuid">
+            <summary>
+            Use <see cref="T:System.Guid"/> to generate a guid.
+            </summary>
+            <returns>Guid</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GuidUtils.GenerateShortGuid(System.Random)">
+            <summary>
+            Generate a short guid as that is what battlescribe does, for example: "0d70-646d-10a0-365d"
+            </summary>
+            <returns>Generate short guid</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.GuidUtils.GenerateKey(System.Int32,System.Char,System.Int32,System.Boolean,System.Random)">
+            <summary>
+            Generate a random alphanumeric key with the specified length.
+            </summary>
+            <returns>New random key</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.IsWhiteSpace(System.String)">
+            <summary>
+            Helper to check if the whole text is classes as <see cref="M:System.Char.IsWhiteSpace(System.Char)"/>.
+            </summary>
+            <param name="line">Line</param>
+            <returns>True if whitespace</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.GetSelectionNumberFromName(System.String,System.String@)">
+            <summary>
+            Get the selection number from the name and return the stripped name.
+            
+            NOTE: This does a best effort guess that 2x Gun Drones means 2 selection of Gun Drones and that it is not part of its name. However in reality there are names that have 2x inside them.
+            If this stripped name does not exist we need to revert to the original name when searching for this entry.
+            </summary>
+            <param name="name">Name to parse</param>
+            <param name="strippedName">Stripped name</param>
+            <returns>Selection amount</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.FindSelectionSeparator(System.String)">
+            <summary>
+            Find the part in the text which seperates the main selection entry from it's child entries. Normally denoted by a colon.
+            </summary>
+            <param name="text">Text to find the position in</param>
+            <returns>Selection separator position</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.StripCost(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Strip single cost from the text. This only strips the first costs from the text. For all costs, use: <see cref="M:Companion.Data.Utils.ReaderUtils.StripCosts(System.String,System.Collections.Generic.List{System.String})"/>
+            </summary>
+            <param name="text">Text to strip costs from</param>
+            <param name="costs">List of costs containing stripped costs (optional)</param>
+            <returns>Stripped text</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.StripCosts(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Strip all costs from the text.
+            </summary>
+            <param name="text">Text to strip costs from</param>
+            <param name="costs">List of costs containing stripped costs (optional)</param>
+            <returns>Stripped text</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.StripFormatting(System.String)">
+            <summary>
+            Strip any formatting from the text. This removes any leading or trailing +, . and whitespace from the text. 
+            </summary>
+            <param name="text">Text to strip</param>
+            <returns>Stripped text</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.ReaderUtils.FindEndOf(System.String,System.Int32,System.Char,System.Char,System.Int32@)">
+            <summary>
+            Find the end of a tag. For example [ ] or { } etc.
+            </summary>
+            <param name="text">Text to search</param>
+            <param name="start">Where to start the search at</param>
+            <param name="openingChar">Opening character</param>
+            <param name="closingChar">Closing character</param>
+            <param name="position">Position the closing end character was found at</param>
+            <returns></returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.ParseXml``1(System.Xml.XmlNode)">
+            <summary>
+            Parse a single XmlNode into an XmlData class.
+            </summary>
+            <typeparam name="T">Type of data</typeparam>
+            <param name="node">Node to parse</param>
+            <returns>Parsed XmlData</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.ParseXmlList``1(System.Collections.Generic.List{System.Xml.XmlNode},Companion.Data.XmlData)">
+            <summary>
+            Parse a list of XmlNodes into a list of XmlData. If a root container is provided it is set on every data in the list (for example a Catalogue/GameSystem root container). Always returns at least an empty list.
+            </summary>
+            <typeparam name="T">Type of data</typeparam>
+            <param name="nodes">Nodes to parse</param>
+            <param name="parent">Optional parent</param>
+            <returns>List of XmlData</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetPath(System.Xml.XmlNode)">
+            <summary>
+            Construct a string that has the node path for debugging.
+            </summary>
+            <param name="node">Node</param>
+            <returns>Path to node</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetAttribute(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get an attribute value with the specified name.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetAttributeInt(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get an attribute value with the specified name and attempt to convert it to an integer.
+            </summary>
+            <param name="node">Node</param>
+            <param name="name">Name</param>
+            <returns>Attribute value</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get the nodes by name recursively through all child nodes.
+            </summary>
+            <param name="element">Current node</param>
+            <param name="name">Name</param>
+            <returns>List of nodes found</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetNodes(System.Xml.XmlNode,System.Collections.Generic.List{System.Xml.XmlNode},System.String)">
+            <summary>
+            Get the nodes by name recursively through all child nodes and add it to the list of nodes provided.
+            </summary>
+            <param name="element">Current node</param>
+            <param name="nodes">List to add results to</param>
+            <param name="name">Name</param>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetChildNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get a list of child nodes from the provided node. Always returns at least an empty list.
+            </summary>
+            <param name="element">Node</param>
+            <param name="name">Name</param>
+            <returns>List of child nodes</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetNodesFromPath(System.Xml.XmlNode,System.String[])">
+            <summary>
+            Get a list of nodes from the path provided.
+            </summary>
+            <param name="element">Element to search from</param>
+            <param name="names">Names of the path to found</param>
+            <returns>List of nodes found or empty list if not found</returns>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlUtils.GetNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get a single node by name. If the provided node has that name it will return that node otherwise it will attempt to find it in the children recursively.
+            </summary>
+            <param name="element">Node</param>
+            <param name="name">Name</param>
+            <returns>Node or null if not found</returns>
+        </member>
+        <member name="T:Companion.Data.Utils.XmlDataFactory">
+            <summary>
+            Speed up xml serialization by creating the constructors manually.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.Utils.XmlDataFactory.Create``1(System.Xml.XmlNode,Companion.Data.XmlData)">
+            <summary>
+            Create a new xml data class of the type specified. This will attempt to use an existing constructor if defined or use reflection last.
+            </summary>
+            <typeparam name="T">Type to create</typeparam>
+            <param name="node">Node to pass into constructor</param>
+            <param name="parent">Optional parent, can be null</param>
+            <returns>New XmlData class</returns>
+        </member>
+        <member name="T:Companion.Data.XmlData">
+            <summary>
+            Base class for all xml data.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.comment">
+            <summary>
+            Optional comment for data.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.xmlns">
+            <summary>
+            Optional xml schema.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.node">
+            <summary>
+            Cached XmlNode. Can be null if not parsed from Xml (i.e.: from code).
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.rootContainer">
+            <summary>
+            Optional root container.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.fields">
+            <summary>
+            List of xml lists containing all the nodes after parsing.
+            </summary>
+        </member>
+        <member name="F:Companion.Data.XmlData.parent">
+            <summary>
+            Parent data or null if the root container.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.XmlData.#ctor(System.Xml.XmlNode,Companion.Data.XmlData)">
+            <summary>
+            Create a new data class from a node. This parses the node automatically.
+            </summary>
+            <param name="node">Node to parse</param>
+            <param name="parent">Optional parent</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.#ctor(System.Xml.XmlNode)">
+            <summary>
+            Create a new data class from a node. This parses the node automatically.
+            </summary>
+            <param name="node">Node to parse</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.InitFields">
+            <summary>
+            Init the fields usually lists to a new empty list. By default does nothing.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.XmlData.OnParseGlobalData">
+            <summary>
+            Parse any global values that might be present in any nodes in the xml, for example: xmlns and comment.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.XmlData.OnParseNode">
+            <summary>
+            Parse the node into data.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.XmlData.ParseXml``1(System.Xml.XmlNode)">
+            <summary>
+            Parse a single XmlNode into an XmlData class.
+            </summary>
+            <typeparam name="T">Type of data</typeparam>
+            <param name="node">Node to parse</param>
+            <returns>Parsed XmlData</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.ParseXmlList``1(System.Collections.Generic.List{System.Xml.XmlNode})">
+            <summary>
+            Parse a list of XmlNodes into a list of XmlData and store it in the fields list. If a root container is provided it is set on every data in the list (for example a Catalogue/GameSystem root container). Always returns at least an empty list.
+            </summary>
+            <typeparam name="T">Type of data</typeparam>
+            <param name="nodes">Nodes to parse</param>
+            <returns>List of XmlData</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Write Xml to the writer. This must be implemented explicitly and by default throws an exception.
+            </summary>
+            <param name="writer">Writer to write to</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetRootContainer">
+            <summary>
+            Get the root container. For example a roster, catalogue or game system.
+            </summary>
+            <returns>Root container</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetRootContainer``1">
+            <summary>
+            Get the root container of a certain expected type. This may throw a class cast exception if it is not that type.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <returns>Root container</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SetRootContainer(Companion.Data.IRootContainer)">
+            <summary>
+            Set the root container.
+            </summary>
+            <param name="rootContainer">Root container</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetNode">
+            <summary>
+            Get the node that was parsed. Cached for convenience.
+            </summary>
+            <returns>Node</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetParent">
+            <summary>
+            Get the parent data class.
+            </summary>
+            <returns>Parent node</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SetParent(Companion.Data.XmlData)">
+            <summary>
+            Set the parent.
+            </summary>
+            <param name="parent">Parent</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetDataType">
+            <summary>
+            Get the xml name of the main node.
+            </summary>
+            <returns>Data type</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.HasNameOverride(System.String)">
+            <summary>
+            Checks if there is an override that changes the name to the specified name. This would normally be a <see cref="T:Companion.Data.Modifier"/>.
+            </summary>
+            <param name="name">Name</param>
+            <returns>True if overridden</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.HasNameOverride(System.Predicate{System.String})">
+            <summary>
+            Checks if there is an override that changes the name to the specified name. This would normally be a <see cref="T:Companion.Data.Modifier"/>.
+            </summary>
+            <param name="namePredicate">Predicate to compare name with</param>
+            <returns>True if overridden</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName(System.String,System.Boolean)">
+            <summary>
+            Search by name. Returns all matching names. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <param name="name">Name</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName``1(System.String,System.Boolean)">
+            <summary>
+            Search by name. Returns all matching names. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="name">Name</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName``1(System.Predicate{System.String},System.Boolean)">
+            <summary>
+            Search by name. Returns all matching names. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="namePredicate">Predicate to compare name with</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById(System.String,System.Boolean)">
+            <summary>
+            Search by id. Returns all matching ids. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById(System.String,System.String,System.Boolean)">
+            <summary>
+            Search by id. Returns all matching ids. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="type">Type to filter by (node name in xml)</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById``1(System.String,System.Boolean)">
+            <summary>
+            Search by id. Returns all matching ids. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName(System.Collections.Generic.List{Companion.Data.XmlData},System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching name into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <param name="results">List of results to add to</param>
+            <param name="name">Name</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById(System.Collections.Generic.List{Companion.Data.XmlData},System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching id into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="results">List of results to add to</param>
+            <param name="id">Id</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById(System.Collections.Generic.List{Companion.Data.XmlData},System.String,System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching id into the results list for fields that match the type. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="results">List of results to add to</param>
+            <param name="id">Id</param>
+            /// <param name="type">Type to filter by (node name in xml)</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllById``1(System.Collections.Generic.List{``0},System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching id into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="results">List of results to add to</param>
+            <param name="id">Id</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName``1(System.Collections.Generic.List{``0},System.String,System.Boolean)">
+            <summary>
+            This collects all the data with matching name into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="results">List of results to add to</param>
+            <param name="name">Name</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchAllByName``1(System.Collections.Generic.List{``0},System.Predicate{System.String},System.Boolean)">
+            <summary>
+            This collects all the data with matching name into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching name and not search any further.
+            </summary>
+            <typeparam name="T">Type to filter by</typeparam>
+            <param name="results">List of results to add to</param>
+            <param name="namePredicate">Predicate to compare name with</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchByName``1(System.String,System.Boolean)">
+            <summary>
+            Find the first type with the matching name.
+            </summary>
+            <typeparam name="T">Type to search for</typeparam>
+            <param name="name">Name</param>
+            <param name="recursive">True if recursive</param>
+            <returns>Type with matching name or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchById``1(System.String,System.Boolean)">
+            <summary>
+            Find the first type with the matching id.
+            </summary>
+            <typeparam name="T">Type to search for</typeparam>
+            <param name="id">Id</param>
+            <param name="recursive">True if recursive</param>
+            <returns>Type with matching id or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchByName(System.String,System.Boolean)">
+            <summary>
+            Find the first data with the matching name.
+            </summary>
+            <param name="name">Name</param>
+            <param name="recursive">True if recursive</param>
+            <returns>Data with matching name or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchById(System.String,System.Boolean)">
+            <summary>
+            Find the first data with the matching id.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True if recursive</param>
+            <returns>Data with matching id or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchByTypeId(System.String,System.Boolean)">
+            <summary>
+            Find the first data with the matching type id.
+            </summary>
+            <param name="typeId">Type Id</param>
+            <param name="recursive">True if recursive</param>
+            <returns>Data with matching type id or null if not found</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchLinksByTargetId(System.String,System.Boolean)">
+            <summary>
+            Search links by target id. Returns all matching ids. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchLinksByTargetId(System.Collections.Generic.List{Companion.Data.XmlData},System.String,System.Boolean)">
+            <summary>
+            This collects all the links with matching target id into the results list. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="results">List of results to add to</param>
+            <param name="id">Id</param>
+            <param name="recursive">Recursive flag</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.SearchLinkByTargetId(System.String,System.Boolean)">
+            <summary>
+            Search link by target id. If recursive this will attempt to search within the fields. Note: If searching recursively it will return the field with the matching id and not search any further.
+            </summary>
+            <param name="id">Id</param>
+            <param name="recursive">True to search recursive</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.AddMixedData(System.Collections.Generic.List{Companion.Data.XmlData})">
+            <summary>
+            Attempt to add a list of classes to the appropriate fields/lists.
+            </summary>
+            <param name="listData">List of things to add</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.AddMixedData(Companion.Data.XmlData)">
+            <summary>
+            Attempt to add any type of data to a field/list.
+            </summary>
+            <param name="data">Data to add</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetField``1">
+            <summary>
+            Get the field by its list type.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <returns>Field</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetAll``1(System.Boolean)">
+            <summary>
+            Gets all child data from the fields list and return it in a new list.
+            </summary>
+            <typeparam name="T">Type of data to return</typeparam>
+            <param name="recursive">True if we want to go recursive</param>
+            <returns>New list of results</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.WriteXmlList``1(System.Xml.XmlWriter,System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            Helper to write a list of XmlData using <see cref="M:Companion.Data.XmlData.WriteXml(System.Xml.XmlWriter)"/> on each member in the list. If the list is null or empty it does not write anything.
+            </summary>
+            <typeparam name="T">Type of XmlData</typeparam>
+            <param name="writer">Xml Writer</param>
+            <param name="list">List to write</param>
+            <param name="elementName">Element name to contain these</param>
+        </member>
+        <member name="M:Companion.Data.XmlData.Clone``1">
+            <summary>
+            Clone this object. This can potentially return null if the XmlNode is not present. Note: This also shallow copies its parent field.
+            </summary>
+            <typeparam name="T">Type of this object ideally</typeparam>
+            <returns>Cloned object</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.DoClone``1">
+            <summary>
+            Clone the object if no xml is present.
+            </summary>
+            <typeparam name="T">Type of this object ideally</typeparam>
+            <returns>Cloned object</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.ConstructDefaultEntryId(Companion.Data.EntryLink)">
+            <summary>
+            Attempt to construct an entry id. Without knowing the initial entry link it's impossible to really construct one accurately working backwards. Use the <see cref="T:Companion.Data.NeedleStack"/> version to have an accurate id.
+            </summary>
+            <param name="entryLink">Optional entry link, this will improve the accuracy</param>
+            <returns>Entry id</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.ConstructDefaultEntryId(Companion.Data.NeedleStack)">
+            <summary>
+            Attempt to construct an entry id. This version passes through the stack and is more accurate.
+            </summary>
+            <param name="linkStack">Entry stack</param>
+            <returns>Entry id</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GenerateUniqueIdHelper">
+            <summary>
+            Helper to generate a unique id. If the root container is set it will attempt to use its game system group and use subsequent fallbacks to generate a guid. It attempts to generate a unique one, but it is not guaranteed.
+            </summary>
+            <returns>Unique id</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetFields">
+            <summary>
+             Get list of xml lists containing all the nodes after parsing by reference.
+            </summary>
+            <returns>Fields</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.GetRootEntry">
+            <summary>
+            Get the root entry. This excludes the root container (catalogue/gamesytem)
+            </summary>
+            <returns>Root Entry</returns>
+        </member>
+        <member name="M:Companion.Data.XmlData.ResolveToRootEntry">
+            <summary>
+            Resolve to root entry.
+            </summary>
+        </member>
+        <member name="M:Companion.Data.XmlData.ResolveToRootEntry(System.Collections.Generic.List{Companion.Data.XmlData})">
+            <summary>
+            Resolve to root entry.
+            </summary>
+            <param name="path">Path</param>
+        </member>
+        <member name="T:Companion.Data.Xml.XmlDataSchema">
+            <summary>
+            Class to gather information about single or multiple xml documents.
+            </summary>
+        </member>
+        <member name="P:Companion.Data.Xml.XmlDataSchemaNode.Node">
+            <summary>
+            Get the node, this can be null if not from an XmlNode. Mostly for debugging.
+            </summary>
+        </member>
+        <member name="E:RosterManager.OnRostersLoaded">
+            <summary>
+            Fired when all rosters are loaded.
+            </summary>
+        </member>
+        <member name="E:RosterManager.OnRostersAdded">
+            <summary>
+            Fired whenever a roster is added.
+            </summary>
+        </member>
+        <member name="E:RosterManager.OnRostersRemoved">
+            <summary>
+            Fired whenever a roster is added.
+            </summary>
+        </member>
+        <member name="P:RosterManager.Instance">
+            <summary>
+            Gets the roster manager singleton. If it does not exist it will get created.
+            </summary>
+        </member>
+        <member name="M:RosterManager.AddRoster(System.Byte[])">
+            <summary>
+            Parse the roster and add it to the roster manager.
+            </summary>
+            <param name="data">Roster data</param>
+        </member>
+        <member name="M:RosterManager.RemoveRoster(Companion.Data.Roster)">
+            <summary>
+            Remove the roster if present.
+            </summary>
+            <param name="roster">Roster</param>
+            <returns>True if removed</returns>
+        </member>
+        <member name="T:SystemManager">
+            <summary>
+            System Manager is used to store game systems and catalogues.
+            </summary>
+        </member>
+        <member name="E:SystemManager.OnGameSystemsLoaded">
+            <summary>
+            Dispatched on the main thread. Source is this. EventArgs is null.
+            </summary>
+        </member>
+        <member name="E:SystemManager.OnActiveGameSystemChanged">
+            <summary>
+            Dispatched on the main thread. Source is this. EventArgs is null.
+            </summary>
+        </member>
+        <member name="P:SystemManager.Instance">
+            <summary>
+            Get the global system manager. If no system manager is available this call creates a new one.
+            </summary>
+        </member>
+        <member name="M:SystemManager.SetActiveGameSystem(Companion.Data.GameSystem)">
+            <summary>
+            Store the active game system if the system only supports one active one.
+            </summary>
+        </member>
+        <member name="M:SystemManager.GetActiveGameSystem">
+            <summary>
+            Get the active game system.
+            </summary>
+            <returns>Return active game system</returns>
+        </member>
+        <member name="M:SystemManager.GetActiveGameSystemGroup">
+            <summary>
+            Get the active game system and its catalogues.
+            </summary>
+            <returns>Return active game system group</returns>
+        </member>
+        <member name="M:SystemManager.LoadActiveGameSystemAsync(System.String)">
+            <summary>
+            Load the game system using the ThreadPool and make it active async. This returns the loading class or null if already loading.
+            </summary>
+            <param name="path">Path of game system to load</param>
+            <returns>Returns GameSystemLoading if this call started loading</returns>
+        </member>
+        <member name="M:SystemManager.LoadGameSystemsAsync(System.String)">
+            <summary>
+            Load all game systems at this path using the ThreadPool. Use <see cref="E:SystemManager.OnGameSystemsLoaded"/> for the callback. The callback is on the main thread if the <see cref="T:CompanionFramework.Core.Threading.Messaging.MessageQueue"/> is used otherwise it is not.
+            </summary>
+            <param name="path">Path to load game systems from</param>
+        </member>
+        <member name="M:SystemManager.DetectGameSystems(System.String)">
+            <summary>
+            Detect any game systems in the immediate path and any subfolders. This uses I/O to find files.
+            </summary>
+            <param name="path">Path</param>
+            <returns>List of game system file paths</returns>
+        </member>
+        <member name="M:SystemManager.LoadGameSystems(System.String)">
+            <summary>
+            Load all game systems at the specified path. This loads any required catalogues too. It automatically gets added to the system manager.
+            </summary>
+            <param name="path">Path</param>
+        </member>
+        <member name="M:SystemManager.LoadGameSystem(System.String)">
+            <summary>
+            Load a single game system at the specified path. This loads any required catalogues too. It automatically gets added to the system manager.
+            </summary>
+            <param name="path">Path</param>
+            <returns>Game system</returns>
+        </member>
+        <member name="M:SystemManager.LoadGameSystem(Companion.Data.GameSystem)">
+            <summary>
+            Add a game system and load any required catalogues. It automatically gets added to the system manager.
+            </summary>
+            <param name="game">Game System to load</param>
+            <returns>Game system</returns>
+        </member>
+        <member name="M:SystemManager.HasGameSystems">
+            <summary>
+            Returns true if any game systems are loaded.
+            </summary>
+            <returns>True if game systems are loaded</returns>
+        </member>
+        <member name="M:SystemManager.HasGameSystem(Companion.Data.GameSystem)">
+            <summary>
+            Checks if the game system is loaded. This checks by reference and by the id of the game system.
+            </summary>
+            <param name="gameSystem">Game system</param>
+            <returns>True if the game system is loaded</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystemGroupById(System.String)">
+            <summary>
+            Get game system group by the game system id. Can return null if not found.
+            </summary>
+            <param name="id">Game system id</param>
+            <returns>Game system group or null</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystemGroupByName(System.String)">
+            <summary>
+            Get game system group by the game system name. Can return null if not found.
+            </summary>
+            <param name="name">Game system name</param>
+            <returns>Game system group or null</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystemById(System.String)">
+            <summary>
+            Get game system by the game system id. Can return null if not found.
+            </summary>
+            <param name="id">Game system id</param>
+            <returns>Game system or null</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystemByName(System.String)">
+            <summary>
+            Get game system by the game system name. Can return null if not found.
+            </summary>
+            <param name="name">Game system name</param>
+            <returns>Game system or null</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystemGroups">
+            <summary>
+            Get all the game system groups. This list is passed by reference.
+            </summary>
+            <returns>Game system groups</returns>
+        </member>
+        <member name="M:SystemManager.GetGameSystems">
+            <summary>
+            Get all the game systems. This creates a new list every time.
+            </summary>
+            <returns>List of game systems</returns>
+        </member>
+        <member name="M:SystemManager.GetCatalogues(Companion.Data.GameSystem)">
+            <summary>
+            Get a list of catalogues that are loaded for this game system. Returns an empty list if no catalogues are loaded.
+            </summary>
+            <param name="gameSystem">Game system</param>
+            <returns>List of catalogues</returns>
+        </member>
+        <member name="M:SystemManager.Clear">
+            <summary>
+            Clear any loaded systems, if async loading is in progress you may want to avoid calling this.
+            </summary>
+        </member>
+        <member name="T:UpdateManager">
+            <summary>
+            Holds data retrieved from the repositories for updates
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnDataIndexAdded">
+            <summary>
+            Fired when data index is received from a repository. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.DataIndexSuccessEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnDataIndexFailed">
+            <summary>
+            Fired when it failed to receive the data index from a repository. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.ProcessFailedEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnRepositoryIndexAdded">
+            <summary>
+            Fired when repository index is received. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.RepositoryIndexSuccessEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnRepositoryIndexFailed">
+            <summary>
+            Fired when it failed to receive the repository index. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.ProcessFailedEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnUpdateSucceeded">
+            <summary>
+            Fired when repository update was successful. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.UpdateSuccessEventArgs"/>.
+            </summary>
+        </member>
+        <member name="E:UpdateManager.OnUpdateFailed">
+            <summary>
+            Fired when it failed to update the repository. Source is <see cref="T:UpdateManager"/>. EventArgs is <see cref="T:Companion.Data.Update.ProcessFailedEventArgs"/>.
+            </summary>
+        </member>
+        <member name="F:UpdateManager.loadedRepositories">
+            <summary>
+            List of loaded repositories.
+            </summary>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryDataIndex(Companion.Data.Update.RepositoryData,System.Boolean)">
+            <summary>
+            Load ALL repository data indices into the repository data. This is a brute force method to get every data index, ideally we just cache the repository data to avoid this lookup.
+            </summary>
+            <param name="repositoryData">Repository data to load</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryIndex(System.String,System.Boolean)">
+            <summary>
+            Retrieve the repository index from the source.
+            </summary>
+            <param name="url">Source url</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryIndex(Companion.Data.Update.RepositoryData,System.Boolean)">
+            <summary>
+            Retrieve the repository index from the source.
+            </summary>
+            <param name="repositoryData">Repository data which will replace any currently cached data</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryDataIndex(Companion.Data.Update.RepositoryData,System.String,System.Boolean)">
+            <summary>
+            Retrieve the data index for the specified repository.
+            </summary>
+            <param name="repositoryData">Repository data</param>
+            <param name="repositoryName">Repository name</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryDataIndex(Companion.Data.Update.RepositoryIndex,Companion.Data.Update.Repository,System.Boolean)">
+            <summary>
+            Retrieve the data index for the specified repository.
+            </summary>
+            <param name="repositoryIndex">Repository index</param>
+            <param name="repository">Repository</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.RetrieveRepositoryDataIndex(Companion.Data.Update.RepositoryData,Companion.Data.Update.Repository,System.Boolean)">
+            <summary>
+            Retrieve the data index for the specified repository.
+            </summary>
+            <param name="repositoryData">Repository data</param>
+            <param name="repository">Repository</param>
+            <param name="async">Whether request should be done asynchronous</param>
+            <returns>Returns true if it was executed</returns>
+        </member>
+        <member name="M:UpdateManager.UpdateFromRepository(Companion.Data.Update.RepositoryData,Companion.Data.Update.Repository,System.String,System.Boolean)">
+            <summary>
+            Update from a repository.
+            </summary>
+            <param name="repositoryData">Repository state data</param>
+            <param name="repository">Repository to update</param>
+            <param name="dataPath">Where to save the repository on disk</param>
+            <param name="async">If true this completes async</param>
+            <returns>RepositoryUpdate object or null if unable to update</returns>
+        </member>
+        <member name="M:UpdateManager.GetRepositoryDataByUrl(System.String)">
+            <summary>
+            Get the existing repository data by the url if it exists.
+            </summary>
+            <param name="url">Repository url</param>
+            <returns>Repository data or null if not found</returns>
+        </member>
+        <member name="M:UpdateManager.AddRepositoryData(Companion.Data.Update.RepositoryData)">
+            <summary>
+            Replaces any existing repository data with the new data or just adds it if no existing data is loaded.
+            </summary>
+            <param name="repositoryData">Repository data</param>
+        </member>
+        <member name="M:UpdateManager.AddRepositoryData(System.String)">
+            <summary>
+            Adds the repository url to the update manager or returns the existing repository data.
+            </summary>
+            <param name="repositoryUrl">Repository url</param>
+            <returns>Repository data</returns>
+        </member>
+    </members>
+</doc>
