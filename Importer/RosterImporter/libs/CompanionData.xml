@@ -346,7 +346,7 @@
             <param name="min">Min: defaults to zero</param>
             <param name="max">Max: defaults to minus one</param>
         </member>
-        <member name="M:Companion.Data.SelectionEntryGroup.IsAutoInclude">
+        <member name="M:Companion.Data.SelectionEntryGroup.IsAutoInclude(System.Double@)">
             <summary>
             Checks if the constraints for min and max equal one.
             </summary>
@@ -643,7 +643,14 @@
             Get all the profiles. This returns a new list every time with the profiles by reference.
             </summary>
             <param name="includeSubselections">If true include subselections (recursively)</param>
-            <returns></returns>
+            <returns>List of profiles</returns>
+        </member>
+        <member name="M:Companion.Data.Selection.GetAllProfiles(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Companion.Data.Profile,Companion.Data.Selection}},System.Boolean)">
+            <summary>
+            Get all the profiles and collect them in the provided list.
+            </summary>
+            <param name="profilesFound">Results list</param>
+            <param name="includeSubselections">If true include subselections (recursively)</param>
         </member>
         <member name="M:Companion.Data.Selection.IsUnitSelection">
             <summary>
